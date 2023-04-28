@@ -43,7 +43,7 @@ const userSlice = createSlice({
         loginSuccess:(state) => {
             state.isLogin = true
         },
-        userLogin:(state:{userCurrent:{}},action:{payload:{}}) => {
+        userLogin:(state:{userCurrent:{}},action:PayloadAction<{}>) => {
             state.userCurrent = action.payload
         },
         userLogout:(state) => {
