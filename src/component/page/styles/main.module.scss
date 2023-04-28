@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    background-color: rgb(7, 116, 205);
+}
+.name {
+    font-size: 27px;
+    font-weight: 600;
+    color: rgb(218, 216, 216);
+    cursor: pointer;
+}
+.register {
+    font-size: 23px;
+    color: rgb(231, 134, 8);
+    padding: 0 30px;
+    cursor: pointer;
+
+}
+.logout {
+    font-size: 23px;
+    color: rgb(231, 134, 8);
+    padding-right: 60px;
+    cursor: pointer;
+
+}
