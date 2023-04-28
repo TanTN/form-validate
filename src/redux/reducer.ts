@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { CaseReducer, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { FC } from "react";
 
 export interface Slice {
@@ -14,30 +14,40 @@ export interface Slice {
     }
     
 }
+
+interface State {
+    users:[],
+    isLogin: boolean,
+    userCurrent:{}
+}
+
+const initialState:State = {
+    users:[],
+    isLogin: false,
+    userCurrent:{}
+}
+
+
 const userSlice = createSlice({
     name: 'user',
-    initialState:{
-        users:[],
-        isLogin: false,
-        userCurrent:{}
-    },
+    initialState,
     reducers:{
 
         postUserRedux:(state:{users:{}[],isLogin:boolean},action:{payload:{}}) => {
  
             state.users = [...state.users,action.payload]
         },
-        getUserRedux:(state:{users:[],isLogin:boolean},action:{payload:[]}) => {
+        getUserRedux:(state, action:PayloadAction<[]>) => {
             state.users = action.payload
         },
-        loginSuccess:(state:{users:[],isLogin:boolean}) => {
+        loginSuccess:(state) => {
             state.isLogin = true
         },
         userLogin:(state:{userCurrent:{}},action:{payload:{}}) => {
             state.userCurrent = action.payload
         },
-        userLogout:(state:{users:[],isLogin:boolean}) => {
-            state.isLogin = false
+        userLogout:(state) => {
+            state.isLogin = false 
         },
     }
 })
